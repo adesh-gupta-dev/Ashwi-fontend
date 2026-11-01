@@ -1,7 +1,23 @@
 import axios from 'axios';
 
+function normalizeBaseUrl(value, fallback) {
+  const raw = typeof value === 'string' ? value.trim() : '';
+
+  if (!raw) {
+    return fallback;
+  }
+
+  const withoutTrailingSlash = raw.replace(/\/$/, '');
+
+  if (/^https?:\/\//i.test(withoutTrailingSlash) || withoutTrailingSlash.startsWith('/')) {
+    return withoutTrailingSlash.endsWith('/api') ? withoutTrailingSlash : `${withoutTrailingSlash}/api`;
+  }
+
+  return fallback;
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api',
+  baseURL: normalizeBaseUrl(import.meta.env.VITE_API_BASE_URL, '/api'),
   headers: {
     'Content-Type': 'application/json',
   },
