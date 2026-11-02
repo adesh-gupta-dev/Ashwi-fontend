@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(800 500 -500 800 0 0)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#501014"/><stop offset="1" stop-color="#09090b"/>
+    </radialGradient>
+    <linearGradient id="red" x1="240" x2="820" y1="220" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff2924"/><stop offset="1" stop-color="#ff6655"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#glow)" d="M0 0h1200v630H0z"/>
+  <rect x="64" y="64" width="1072" height="502" rx="30" fill="#0e0e12" fill-opacity=".72" stroke="#383037"/>
+  <path d="m110 134 18-32 18 32h-11l-7-13-7 13z" fill="url(#red)"/>
+  <text x="160" y="137" fill="#fff" font-family="Arial,sans-serif" font-size="34" font-weight="700">Ashwi</text>
+  <text x="110" y="290" fill="#fff" font-family="Arial,sans-serif" font-size="70" font-weight="700">One workspace.</text>
+  <text x="110" y="380" fill="url(#red)" font-family="Arial,sans-serif" font-size="70" font-weight="700">Infinite intelligence.</text>
+  <text x="112" y="450" fill="#c5c3cc" font-family="Arial,sans-serif" font-size="27">A profession-aware AI workspace for thoughtful work.</text>
+  <text x="112" y="510" fill="#898791" font-family="Arial,sans-serif" font-size="19">WEB · ANDROID · IOS</text>
+</svg>

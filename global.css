@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ashwi-scroll-track: #09090b;
+  --ashwi-scroll-thumb: #392124;
+  --ashwi-scroll-hover: #ff3028;
+  scrollbar-color: var(--ashwi-scroll-thumb) var(--ashwi-scroll-track);
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--ashwi-scroll-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  min-height: 28px;
+  border: 2px solid var(--ashwi-scroll-track);
+  border-radius: 999px;
+  background: var(--ashwi-scroll-thumb);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--ashwi-scroll-hover);
+}

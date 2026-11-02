@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Ashwi",
+    "slug": "ashwi-mobile",
+    "scheme": "ashwi",
+    "version": "0.1.0",
+    "orientation": "default",
+    "userInterfaceStyle": "automatic",
+    "web": { "bundler": "metro", "output": "static", "favicon": "./assets/ashwi-logo.png" },
+    "splash": {
+      "backgroundColor": "#12131a"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 30,
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 34
+          }
+        }
+      ],
+      "expo-router",
+      "expo-asset"
+    ],
+    "android": {
+      "softwareKeyboardLayoutMode": "resize",
+      "package": "com.adesh.ashwi"
+    }
+  }
+}
