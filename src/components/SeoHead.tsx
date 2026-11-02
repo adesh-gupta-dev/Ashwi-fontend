@@ -11,7 +11,7 @@ type SeoHeadProps = {
 
 /** Route metadata is emitted into each statically rendered web page. */
 export function SeoHead({ title, description, path, noIndex = false, structuredData }: SeoHeadProps) {
-  const siteUrl = process.env.EXPO_PUBLIC_SITE_URL?.replace(/\/$/, '');
+  const siteUrl = 'https://chatwithashwi.vercel.app';
   const canonical = siteUrl ? `${siteUrl}${path}` : undefined;
 
   return (

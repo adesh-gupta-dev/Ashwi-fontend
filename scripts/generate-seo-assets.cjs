@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const outputDir = path.resolve(process.argv[2] || 'dist/web');
-const siteUrl = process.env.EXPO_PUBLIC_SITE_URL?.trim().replace(/\/$/, '');
+const siteUrl = 'https://chatwithashwi.vercel.app';
 const publicPages = ['/', '/about', '/signup'];
 
 if (!fs.existsSync(outputDir)) {

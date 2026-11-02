@@ -43,8 +43,9 @@ function normalizeBaseUrl(value: string | undefined, fallback: string) {
 }
 
 const apiPort = process.env.EXPO_PUBLIC_API_PORT || '5000';
+const productionWebBaseURL = 'https://ashwiapi.vercel.app/api';
 const localWebBaseURL = process.env.NODE_ENV === 'production'
-  ? ''
+  ? productionWebBaseURL
   : `http://localhost:${apiPort}/api`;
 const defaultBaseURL = Platform.select({
   android: `http://10.0.2.2:${apiPort}/api`,

@@ -2,5 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": "pnpm run export:web",
-  "outputDirectory": "dist/web"
+  "outputDirectory": "dist/web",
+  "cleanUrls": true
 }
