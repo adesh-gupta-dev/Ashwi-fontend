@@ -820,7 +820,7 @@ export function ChatScreen({ mode }: { mode: ChatMode }) {
       </SafeAreaView>
       </View>
 
-      <Modal visible={showSettings} transparent animationType="slide" onRequestClose={() => setShowSettings(false)}>
+      {showSettings ? <Modal visible transparent animationType="slide" onRequestClose={() => setShowSettings(false)}>
         <KeyboardAvoidingView {...getKeyboardAvoidingProps()} style={styles.settingsOverlay}>
           <Pressable style={styles.settingsBackdrop} onPress={() => setShowSettings(false)} />
           <ScrollView keyboardShouldPersistTaps="handled" keyboardDismissMode={keyboardDismissMode}
@@ -912,8 +912,8 @@ export function ChatScreen({ mode }: { mode: ChatMode }) {
             </View>
           </ScrollView>
         </KeyboardAvoidingView>
-      </Modal>
-      <Modal visible={!isLargeLayout && showSessions} transparent animationType="slide" onRequestClose={() => setShowSessions(false)}>
+      </Modal> : null}
+      {!isLargeLayout && showSessions ? <Modal visible transparent animationType="slide" onRequestClose={() => setShowSessions(false)}>
         <View style={styles.settingsOverlay}>
           <Pressable accessibilityLabel="Close conversations" style={styles.settingsBackdrop} onPress={() => setShowSessions(false)} />
           <View style={[styles.settingsSheet, styles.settingsContent, { paddingBottom: insets.bottom + 16, backgroundColor: colors.surfaceContainer }]}>
@@ -923,10 +923,10 @@ export function ChatScreen({ mode }: { mode: ChatMode }) {
             {sessionsPanel}
           </View>
         </View>
-      </Modal>
-      <Modal visible={showNavigation} transparent animationType="fade" onRequestClose={() => setShowNavigation(false)}>
+      </Modal> : null}
+      {showNavigation ? <Modal visible transparent animationType="fade" onRequestClose={() => setShowNavigation(false)}>
         <View className="flex-1 flex-row bg-black/60"><Pressable accessibilityLabel="Close navigation" onPress={() => setShowNavigation(false)} style={StyleSheet.absoluteFill} /><WorkspaceSidebar onSettings={() => setShowSettings(true)} onNewChat={handleNewChat} onNavigate={() => setShowNavigation(false)} /></View>
-      </Modal>
+      </Modal> : null}
     </LinearGradient>
   );
 }

@@ -8,6 +8,7 @@ type Props = { visible: boolean; onCancel: () => void; onConfirm: () => void };
 /** React Native Alert has no browser dialog implementation. */
 export function ConfirmationDialog({ visible, onCancel, onConfirm }: Props) {
   const { colors } = useTheme();
+  if (!visible) return null;
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onCancel}>
       <View style={styles.overlay}>

@@ -635,7 +635,7 @@ export function AdminScreen({ section }: { section: AdminSection }) {
         </ScrollView>
       </SafeAreaView>
       </View>
-      <Modal visible={showNavigation} transparent animationType="fade" onRequestClose={() => setShowNavigation(false)}><View className="flex-1 flex-row bg-black/60"><Pressable accessibilityLabel="Close navigation" onPress={() => setShowNavigation(false)} style={StyleSheet.absoluteFill} /><WorkspaceSidebar admin onNavigate={() => setShowNavigation(false)} /></View></Modal>
+      {showNavigation ? <Modal visible transparent animationType="fade" onRequestClose={() => setShowNavigation(false)}><View className="flex-1 flex-row bg-black/60"><Pressable accessibilityLabel="Close navigation" onPress={() => setShowNavigation(false)} style={StyleSheet.absoluteFill} /><WorkspaceSidebar admin onNavigate={() => setShowNavigation(false)} /></View></Modal> : null}
       {Platform.OS === 'web' ? <ConfirmationDialog visible={pendingDelete !== null} onCancel={() => setPendingDelete(null)} onConfirm={() => {
         const id = pendingDelete;
         setPendingDelete(null);
