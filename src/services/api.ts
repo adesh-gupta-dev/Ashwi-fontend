@@ -42,13 +42,16 @@ function normalizeBaseUrl(value: string | undefined, fallback: string) {
   return fallback;
 }
 
-const apiPort = process.env.EXPO_PUBLIC_API_PORT || '3000';
+const apiPort = process.env.EXPO_PUBLIC_API_PORT || '5000';
+const localWebBaseURL = process.env.NODE_ENV === 'production'
+  ? ''
+  : `http://localhost:${apiPort}/api`;
 const defaultBaseURL = Platform.select({
   android: `http://10.0.2.2:${apiPort}/api`,
   ios: `http://localhost:${apiPort}/api`,
-  web: `http://localhost:${apiPort}/api`,
+  web: localWebBaseURL,
   default: `http://localhost:${apiPort}/api`,
-});
+}) || '';
 
 const baseURL = normalizeBaseUrl(process.env.EXPO_PUBLIC_API_BASE_URL, defaultBaseURL);
 
@@ -104,6 +107,10 @@ async function request<T = any>(method: string, path: string, config: RequestCon
     consoleTerminal('api.request', { method, endpoint: path.split('?')[0], kind, status });
     return { ok: false, data: null, status, error: { kind, message, status } };
   };
+
+  if (!baseURL) {
+    return fail('network', 'The Ashwi API URL is not configured for this deployment.');
+  }
 
   try {
     const response = await fetch(buildUrl(path), {

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../global.css';
 import { useFonts } from 'expo-font';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, Platform, View } from 'react-native';
 import { consoleTerminal } from '@/utils/consoleTerminal';
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
@@ -24,7 +24,10 @@ export default function RootLayout() {
   }, []);
 
   useEffect(() => { if (fontError) consoleTerminal('fonts.load', fontError); }, [fontError]);
-  if (!fontsLoaded && !fontError) return <View style={{ flex: 1, backgroundColor: '#111111', justifyContent: 'center' }}><ActivityIndicator color="#ff2600" /></View>;
+  // Expo's static renderer considers bundled fonts ready immediately, while the
+  // browser loads them asynchronously. Keep the web tree identical during
+  // hydration; native screens can still wait for fonts before rendering.
+  if (Platform.OS !== 'web' && !fontsLoaded && !fontError) return <View style={{ flex: 1, backgroundColor: '#111111', justifyContent: 'center' }}><ActivityIndicator color="#ff2600" /></View>;
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>

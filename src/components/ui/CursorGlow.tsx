@@ -41,12 +41,12 @@ export function CursorGlow() {
       if (frame === null) frame = window.requestAnimationFrame(follow);
       if (!isVisible) {
         isVisible = true;
-        Animated.timing(opacity, { toValue: 1, duration: 100, useNativeDriver: true }).start();
+        Animated.timing(opacity, { toValue: 1, duration: 100, useNativeDriver: false }).start();
       }
     };
     const onPointerLeave = () => {
       isVisible = false;
-      Animated.timing(opacity, { toValue: 0, duration: 120, useNativeDriver: true }).start();
+      Animated.timing(opacity, { toValue: 0, duration: 120, useNativeDriver: false }).start();
     };
 
     window.addEventListener('pointermove', onPointerMove, { passive: true });
