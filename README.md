@@ -68,3 +68,7 @@ Native Android builds require Android Studio and the Android SDK. iOS builds req
 ## SEO deployment setting
 
 Set `EXPO_PUBLIC_SITE_URL` to the deployed HTTPS origin before running `pnpm export:web`. Static export then writes canonical and social metadata into rendered pages and generates `robots.txt` and `sitemap.xml` for that origin.
+
+## Vercel deployment
+
+The root `vercel.json` builds this Expo Router app as a static site and publishes `dist/web`. Keep the Vercel project root set to the repository root. Add `EXPO_PUBLIC_API_BASE_URL` and `EXPO_PUBLIC_SITE_URL` as build environment variables in the Vercel project. Assign the intended `*.vercel.app` hostname under **Project Settings → Domains**; a repository push cannot register or attach a Vercel domain.

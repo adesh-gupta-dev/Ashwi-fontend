@@ -1,6 +1,7 @@
 node_modules/
 .expo/
 .gradle/
+.vercel/
 dist/
 web-build/
 test-artifacts/
